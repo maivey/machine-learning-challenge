@@ -2,55 +2,48 @@
 
 # Exoplanet Exploration
 
-### Background
+## Background
 
 This script is for the following scenario: Over a period of nine years in deep space, the NASA Kepler space telescope has been out on a planet-hunting mission to discover hidden planets outside of our solar system. To help process this data, this script creates machine learning models capable of classifying candidate exoplanets from the raw dataset.
 
 
 
-### Prequisites
+## Prequisites
 
 The script requires imports of the following:
 
 Basic Imports:
 
-`import pandas as pd`
-
-`import numpy as np`
-
-`import matplotlib.pyplot as plt`
-
-`import seaborn as sns`
+```
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
 
 ML imports:
-
-`from sklearn.model_selection import train_test_split`
-
-`from sklearn.preprocessing import MinMaxScaler`
-
-`from sklearn.linear_model import LogisticRegression`
-
-`from sklearn.metrics import classification_report`
-
-`from sklearn.feature_selection import RFE`
-
-`from sklearn.model_selection import GridSearchCV`
-
-`from sklearn.metrics import confusion_matrix`
-
-`import joblib`
+```
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+from sklearn.feature_selection import RFE
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import confusion_matrix
+import joblib
+```
 
 
 
-### Steps
+## Steps
 
-#### 1. Preprocess the Data
+### 1. Preprocess the Data
 
 - Preprocess the dataset prior to fitting the model
 - Perform feature selection and remove unnecessary features
 - Use `MinMaxScaler` to scale the numerical data
 
-#### 2. Tune Model Parameters
+### 2. Tune Model Parameters
 
 - Use `GridSearch` to tune model parameters.
 
@@ -58,7 +51,7 @@ ML imports:
 
 
 
-### Analysis
+## Analysis
 
 ### Comparison of Models
 
@@ -108,9 +101,9 @@ ML imports:
 
 By comparing the SVC model's f1-score, it is clear that the SVC model preforms best after scaling the X values, filtering the X values for the top 25 important features, and hypertuning the parameters using grid search. The feature selection model only increases the f1-score by 0.01 for the Confirmed category compared to the scaled model, and the f1-score is constant for the Candidate and False Positive categories compared to the scaled model. However, the f1-score for the grid model increases by 0.08 for the Candidate category, 0.05 for the Confirmed category, and stays constant for the False Positive category. For all three models, the f1-score is 0.99 for the False Positive category, meaning the models have near perfect precision and recall for the False Positive category. The grid model preforms best because the f1-scores are closer to 1 for all categories, and the precision and recall scores are greater for the Candidate and Confirmed categories than the other two models.
 
-![SVC_ConfusionMatrix](/Users/morganivey/Desktop/machine-learning-challenge/Output/SVC_ConfusionMatrix.png)
+![SVC_ConfusionMatrix](Output/SVC_ConfusionMatrix.png)
 
-![SVC_ModelComparison_TestingScores](/Users/morganivey/Desktop/machine-learning-challenge/Output/SVC_ModelComparison_TestingScores.png)
+![SVC_ModelComparison_TestingScores](Output/SVC_ModelComparison_TestingScores.png)
 
 By comparing the SVC model's testing score, it is clear that the SVC model preforms best after scaling the X values, filtering the X values for the top 25 important features, and hypertuning the parameters using grid search. The model's testing score increases slightly (only 0.41%) when filtering the X values for the top 25 important features as opposed to only using the scaled X values. However, the grid model's testing score increases 4.15% compared to fitting the model only using scaled X values, and increases 3.72% compared to fitting the money using scaled X values and choosing the top 25 important features.
 
@@ -160,9 +153,9 @@ By comparing the SVC model's testing score, it is clear that the SVC model prefo
 
 By comparing the SVC model's f1-score, it is clear that the SVC model preforms best after scaling the X values, filtering the X values for the top 25 important features, and hypertuning the parameters using grid search. Thef1-score for the feature selection model stays constant for all categories compared to the scaled model. However, the f1-score for the grid model increases by 0.06 for the Candidate category, 0.05 for the Confirmed category, and stays constant for the False Positive category. For all three models, the f1-score is 0.99 for the False Positive category, meaning the models have near perfect precision and recall for the False Positive category. The grid model preforms best because the f1-scores are closer to 1 for all categories, and the precision and recall scores are greater for the Candidate and Confirmed categories than the other two models.
 
-![LR_ConfusionMatrix](/Users/morganivey/Desktop/machine-learning-challenge/Output/LR_ConfusionMatrix.png)
+![LR_ConfusionMatrix](Output/LR_ConfusionMatrix.png)
 
-![LR_ModelComparison_TestingScores](/Users/morganivey/Desktop/machine-learning-challenge/Output/LR_ModelComparison_TestingScores.png)
+![LR_ModelComparison_TestingScores](Output/LR_ModelComparison_TestingScores.png)
 
 By comparing the LR model's testing score, it is clear that the LR model preforms best after scaling the X values, filtering the X values for the top 25 important features, and hypertuning the parameters using grid search. The model's testing score increases very slightly (only 0.07%) when filtering the X values for the top 25 important features as opposed to only using the scaled X values. However, the grid model's testing score increases 1.28% compared to fitting the model only using scaled X values, and increases 1.21% compared to fitting the money using scaled X values and choosing the top 25 important features.
 
