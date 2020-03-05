@@ -51,15 +51,13 @@ import joblib
 
 
 
-## Analysis
+## Analysis - Comparison of Models
 
-### Comparison of Models
+### SVC (Support Vector Classification)
 
-#### SVC (Support Vector Classification)
+#### Classification Reports
 
-##### Classification Reports
-
-###### Scaled (MinMaxScaler)
+##### Scaled (MinMaxScaler)
 
 |                | Precision | Recall | f1-score | support |
 | -------------- | --------- | ------ | -------- | ------- |
@@ -73,7 +71,7 @@ import joblib
 
 ---------------------------------------------------------
 
-###### Feature Selection (RFE)
+##### Feature Selection (RFE)
 
 |                | Precision | Recall | f1-score | support |
 | -------------- | --------- | ------ | -------- | ------- |
@@ -87,7 +85,7 @@ import joblib
 
 ---------------------------------------------------------
 
-###### Grid (Hyperparameter Tuning)
+##### Grid (Hyperparameter Tuning)
 
 |                | Precision | Recall | f1-score | support |
 | -------------- | --------- | ------ | -------- | ------- |
@@ -109,11 +107,11 @@ By comparing the SVC model's testing score, it is clear that the SVC model prefo
 
 
 
-#### Logistic Regression
+### Logistic Regression
 
-##### Classification Reports
+#### Classification Reports
 
-###### Scaled (MinMaxScaler)
+##### Scaled (MinMaxScaler)
 
 |                | Precision | Recall | f1-score | support |
 | -------------- | --------- | ------ | -------- | ------- |
@@ -126,7 +124,7 @@ By comparing the SVC model's testing score, it is clear that the SVC model prefo
 | weighted avg   | 0.85      | 0.85   | 0.85     | 1748    |
 
 ---------------------------------------------------------
-###### Feature Selection (RFE)
+##### Feature Selection (RFE)
 
 |                | Precision | Recall | f1-score | support |
 | -------------- | --------- | ------ | -------- | ------- |
@@ -139,7 +137,7 @@ By comparing the SVC model's testing score, it is clear that the SVC model prefo
 | weighted avg   | 0.85      | 0.85   | 0.85     | 1748    |
 
 ---------------------------------------------------------
-###### Grid (Hyperparameter Tuning)
+##### Grid (Hyperparameter Tuning)
 
 |                | Precision | Recall | f1-score | support |
 | -------------- | --------- | ------ | -------- | ------- |
