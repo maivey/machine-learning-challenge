@@ -26,11 +26,16 @@ ML imports:
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, confusion_matrix`
 from sklearn.feature_selection import RFE
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import confusion_matrix
 import joblib
+from sklearn.preprocessing import LabelEncoder
+from keras.utils import to_categorical
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from sklearn import metrics
 ```
 
 
@@ -168,3 +173,31 @@ Thus, the best model is the SVC Model. Below shows a comparison of the f1-scores
 | FALSE POSITIVE | 0.99 | 0.99 |
 
 The testing score for the SVC model is 87.6% and the testing score for the LR model is 86.2%. Thus, the SVC model is the best model out of the two models, as it has a higher mean accuracy score. The SVC model is good for predicting new expoplanets; however, another model may be able to predict closer to 90%. Perhaps a Neural Network can be employed to achieve a higher score. 
+
+### Deep Learning
+
+#### Classification Report
+
+|                | Precision | Recall | f1-score | support |
+| -------------- | --------- | ------ | -------- | ------- |
+| CANDIDATE      | 0.84      | 0.69   | 0.76     | 422     |
+| CONFIRMED      | 0.75      | 0.85   | 0.80     | 450     |
+| FALSE POSITIVE | 0.98      | 0.99   | 0.99     | 876     |
+|                |           |        |          |         |
+| accuracy       |           |        | 0.89     | 1748    |
+| macro avg      | 0.86      | 0.85   | 0.85     | 1748    |
+| weighted avg   | 0.88      | 0.89   | 0.88     | 1748    |
+
+![DL_CR_plot](Output/DL_CR_plot.png)
+
+##### Confusion Matrix![DeepLearning_ConfusionMatrix](Output/DeepLearning_ConfusionMatrix.png)
+
+As shown above, a Neural Network model increases the accuracy of the model to 88.5%. The comparison is shown below:
+
+| f1-Scores      | SVC  | LR   | DL   |
+| -------------- | ---- | ---- | ---- |
+| CANDIDATE      | 0.74 | 0.74 | 0.76 |
+| CONFIRMED      | 0.78 | 0.79 | 0.80 |
+| FALSE POSITIVE | 0.99 | 0.99 | 0.99 |
+
+The testing score for the SVC model is 87.6%, the testing score for the LR model is 86.2%, and the testing score for the Neural Network is 88.5%. Thus, the Neural Network model is the best model out of all three models, as it has a higher mean accuracy score and higher f1 scores for all three categories.
